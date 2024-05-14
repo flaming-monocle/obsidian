@@ -1,0 +1,22 @@
+# Files created on the same day as this file
+''' dataview
+LIST
+FROM ""
+WHERE file.cday = this.file.cday
+'''
+
+# Files last modified on the day as this file was created
+''' dataview
+LIST
+FROM ""
+WHERE file.path != this.file.path
+AND file.mday = this.file.cday
+'''
+
+# Files created earlier, but last modified on this day 
+''' dataview
+LIST
+FROM ""
+WHERE file.path != this.file.path
+AND file.cday != this.file.cday
+AND file.mday = this.file.cday
